@@ -1,5 +1,6 @@
 package br.com.gft.gastos.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -62,6 +63,12 @@ public class GastoService {
 
 	public List<Gasto> listaPorIdCliente(Long id) {
 		List<Gasto> list = gastoRepository.findByCliente(id);
+
+		return list;
+	}
+	
+	public List<Gasto> listaPorIdClienteEData(Long id, Date data) {
+		List<Gasto> list = gastoRepository.findByClienteAndData(id,data);
 
 		return list;
 	}

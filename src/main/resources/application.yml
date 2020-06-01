@@ -22,5 +22,9 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
-
-  
+      
+logging:
+  level:
+    org.hibernate:
+      SQL: INFO
+      type.descriptor.sql.BasicBinder: TRACE
