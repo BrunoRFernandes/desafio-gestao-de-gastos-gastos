@@ -2,6 +2,8 @@ package br.com.gft.gastos.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.gft.gastos.model.Categoria;
 
 public class GastoDTO {
@@ -12,6 +14,7 @@ public class GastoDTO {
 	
 	private Integer codigoUsuario;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", locale = "pt-BR", timezone = "America/Sao_Paulo")
 	private Date data;
 	
 	private Categoria categoria;

@@ -1,8 +1,10 @@
 package br.com.gft.gastos.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +37,11 @@ public class GastoController{
 	@GetMapping("/listarPorCliente/{id}")
 	public List<Gasto> listarGastosCliente(@PathVariable Long id){
 		return gastoService.listaPorIdCliente(id);
+	}
+	
+	@GetMapping("/listarPorCliente/{id}/{data}")
+	public List<Gasto> listarGastosCliente(@PathVariable Long id, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date data){
+		return gastoService.listaPorIdClienteEData(id, data);
 	}
 	
 }

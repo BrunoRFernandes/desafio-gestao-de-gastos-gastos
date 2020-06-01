@@ -18,9 +18,13 @@ spring:
     
 eureka:
   client:
-    fetch-registry: true
-    register-with-eureka: true
+    fetch-registry: false
+    register-with-eureka: false
     service-url:
       defaultZone: http://localhost:8761/eureka
-
-  
+      
+logging:
+  level:
+    org.hibernate:
+      SQL: INFO
+      type.descriptor.sql.BasicBinder: TRACE
